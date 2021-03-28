@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework-1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="otherBody">
+    <header>
+        <h1>Movies</h1>        
+    </header>
+    
+    <div id="navBar">
+            <a href="home.html">Home</a>
+            <a id="currentSite" href="movies.html">Movies</a>
+            <a href="tvShows.html">Tv-Shows</a>
+            <!-- <a href="">Genre</a> -->
+            <a href="favorites.html">Favorites</a>
+    </div>
+    <div id="searchDiv">
+        <form action="">
+            <input id="srch" type="text" placeholder="Search..">
+            <button type="submit" onclick="search($('#srch').val());">Submit</button>
+        </form>
+    </div>
+
+    <div id="add">
+        <form action="">
+            <p>Add a Movie</p>
+            <input id="url" type="text" placeholder="Url of image.."><br>
+            <input id="name" type="text" placeholder="Name.."><br>
+            <button type="submit" onclick="addNewItem('movies', $('#url').val(), $('#name').val());">Add</button>
+        </form>
+    </div>
+
+
+    <div id="movies"></div>
+
+    <footer>
+        Footer..
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>
