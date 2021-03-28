@@ -13,7 +13,7 @@ function init() {
 }
 
 function initGrid() {
-    if (window.innerWidth<900) {
+    if (window.innerWidth<600) {
         let s;
         if ($("#currentSite").text()=="Tv-Shows") {
             s = '"header search search"'+
@@ -31,45 +31,49 @@ function initGrid() {
 }
 
 function boxSlide() {
+    if (window.innerWidth>1200) {
     var boxWidth = $("#add").width();
 
-    $("#add").css("width", boxWidth);
-    // $(".otherBody").css("grid-template-columns", "15% 55% 30%");
-
     $("#add").on("mouseenter", function() { 
-        if (window.innerWidth>900) {
-            $("#add").animate({ width: boxWidth*2.5 }, 100);
-            $(".otherBody").css("grid-template-columns", "33% 37% 30%");
-        }
-        // $(".otherBody").css("grid-template-columns", "70% 10% 20%");
-
+        $("#add").animate({ width: boxWidth*2.5 }, 100);
+        $(".otherBody").css("grid-template-columns", "33% 37% 30%");
     }).on("mouseleave", function() { 
         $("#add").animate({ width: boxWidth}, 100);
-        if (window.innerWidth>900) {
         $(".otherBody").css("grid-template-columns", "14% 56% 30%");
-        }
-        // $(".otherBody").css("grid-template-columns", "30% 20% 50%");
-    })
+    });
+    }
 }
 
+function fileExists(url) {
+    var http = new XMLHttpRequest();
+    http.open('HEAD', url, false);
+    http.send();
+    return http.status!=404;
+}
 
 //INIT
 function initLocals() {
     if (!localStorage.getItem("tvShows")) {
-        $.get("data.json", function(data){
-            localStorage.setItem("tvShows", JSON.stringify(data.tvShows));
-            initShows();
-        });
-        // localStorage.setItem("tvShows", "[]");
+        if (fileExists("data.json")) {
+            $.get("data.json", function(data){
+                localStorage.setItem("tvShows", JSON.stringify(data.tvShows));
+                initShows();
+            });
+        } else {
+            localStorage.setItem("tvShows", "[]");
+        }
     } else {
         initShows();
     }
     if (!localStorage.getItem("movies")) {
-        $.get("data.json", function(data){
-            localStorage.setItem("movies", JSON.stringify(data.movies));
-            initMovies();
-        })
-        // localStorage.setItem("movies", "[]");
+        if (fileExists("data.json")) {
+            $.get("data.json", function(data){
+                localStorage.setItem("movies", JSON.stringify(data.movies));
+                initMovies();
+            })
+        } else {
+            localStorage.setItem("movies", "[]");
+        }
     } else {
         initMovies();
     }
@@ -81,11 +85,7 @@ function initLocals() {
     if (!localStorage.getItem("favorites")) {
         localStorage.setItem("favorites", "[]");
     }
-    // if (!localStorage.getItem("favoriteMovies")) {
-    //     localStorage.setItem("favoriteMovies", "[]");
-    // }
     initFavorites();
-    // refreshLocals();
 }
 
 function initShows() {
@@ -113,7 +113,7 @@ function initFavorites() {
 function addTvShowOrMovie(url, name, type) {
     let img = '<img src='+url+' alt='+name+'>';
     $("#"+type).append("<div class='content_img'>"+img+"<p>"+name+"</p>"+"</div>");
-    $("#"+type+" div:last").click(test);
+    $("#"+type+" div:last").click(goToDescription);
 }
 
 function addNewItem(type, url, name) {
@@ -126,6 +126,7 @@ function addNewItem(type, url, name) {
     items.push(object);
     localStorage.setItem(type, JSON.stringify(items));
 }
+
 //SEARCH
 function initSearched() {
     let searched = localStorage.searched;
@@ -139,6 +140,7 @@ function search(name) {
         return
     }
     setTimeout(() => { 
+        localStorage.description = "";
         window.location.href = "search.html";
         searched = name.toLowerCase().replace(/[^\w\s!?]/g,'');        
         localStorage.setItem("searched", searched);
@@ -152,8 +154,6 @@ function searchLocals(searched) {
     let list = new Array();
 
     for (const [i,show] of shows.entries()) {
-        // name = show.name.toLowerCase().replace(/[^\w\s!?]/g,'');
-        // name2 = movie.name.toLowerCase().replace(/[^\w\s!?]/g,'');
         if (checkWords(show.name.toLowerCase().replace(/[^\w\s!?]/g,''), searched) || show.name === searched) {
             addSearchedItem("StvShows", show);
             list.push({data: show, id: i, type: "tvShows"});
@@ -165,7 +165,6 @@ function searchLocals(searched) {
             list.push({data: movie, id: i, type: "movies"});
         } 
     }
-    // localStorage.description = JSON.stringify(list);
     return list;
 }
 
@@ -185,10 +184,17 @@ function checkWords(s1, s2) {
 function addSearchedItem(type, movie) {
     let img = '<img src='+movie.url+' alt='+movie.name+'>';
     $("#"+type).append("<div class='content_img'>"+img+"<p>"+movie.name+"</p>"+"</div>");
-    $("#"+type+" div:last").click(test);
+    $("#"+type+" div:last").click(goToDescription);
 }
 
 //DESCRIPTION
+function goToDescription() {
+    setTimeout(() => { 
+        window.location.href = "description.html";
+        localStorage.description = $(this).text();
+    }, 0);
+}
+
 function initDescription() {
     if (!localStorage.getItem("description")) {
         localStorage.setItem("description", "[]");
@@ -196,39 +202,27 @@ function initDescription() {
     if (localStorage.description!="") {
         find();
     }
-    // $("#description").append("<h2>"+localStorage.description+"</h2>");
 }
 
 async function find() {
-    // console.log($(this));
-    // const t = await fetch(searchJSON(localStorage.description));
-    // await fetch(searchJSON(localStorage.description))
-    // .then(data => console.log(data));
-    // let name = JSON.parse(localStorage.description);
-    // console.log(name);
-    let d = localStorage.description;
-    // localStorage.description = "";
-    let f = searchLocals(d);
+    let description = localStorage.description;
+    let found = searchLocals(description);
 
-    for (const item of f) {
-        if (item.data.name === d) {
+    for (const item of found) {
+        if (item.data.name === description) {
             describe(item);
         }
     }
 }
 
 function describe(item) {
-    // localStorage.setItem("tvShows", JSON.stringify("blabla"));
-    // console.log(item.data.description);
     let img = '<img src='+item.data.url+' alt='+item.data.name+'>';
     $("#description_title").append("<h1>"+item.data.name+"</h1>");
     $("#description_img").append(img);
     $("#description_area").append("<textarea id='description_input' name='describe' onchange=changedDescription();>"+item.data.description+"</textarea>");
-    // $("#description").append("<h1>"+item.season1+"</h1>");
-    //favorite button
     $("#description_area").append("<br /><button id='favoriteItem'>Favorite</button>");
     if (searchFavorites(item.data.name)>=0) {
-        $("#favoriteItem").css("background", "red");
+        $("#favoriteItem").css("background", "red").css("color", "white");
     }
     $("#favoriteItem").click(favoriteItem);
     $("#favoriteItem").css("margin", "10px");
@@ -237,6 +231,7 @@ function describe(item) {
     $("#description_area").append("<button id='removeItem'>Delete</button>");
     $("#removeItem").click(removeItem);
 
+    //Check if it's tvShows to add Seasons
     if (item.type=="tvShows") {
         addContent(item);
     }
@@ -246,36 +241,25 @@ function changedDescription() {
     const input = $("#description_input").val();
     let item = $(searchLocals(localStorage.description));
     let items = JSON.parse(localStorage.getItem(item[0].type));
-    // console.log(items[item[0].id].description+"\n", "\n"+input);
 
     items[item[0].id].description = input;
     localStorage.setItem(item[0].type, JSON.stringify(items));
-    // initDescription();
 }
 
 function favoriteItem() {
     let item = searchLocals($(this).parent(":first").children(":first").text());
     let favs = JSON.parse(localStorage.favorites);
     let alreadyFavorited = searchFavorites(item[0].data.name);
-    // let s = "";
     if (alreadyFavorited>=0) {
         favs.splice(alreadyFavorited, 1);
-        // s = "Removed from Favorites";
-        $("#favoriteItem").css("background", "white");
+        //Removed from Favorites
+        $("#favoriteItem").css("background", "white").css("color", "black");
     } else {
         favs.push(item[0]);
-        // s = "Added to Favorites";
-        $("#favoriteItem").css("background", "red");
-    // favs.push(item[0]);
+        //Added to Favorites
+        $("#favoriteItem").css("background", "red").css("color", "white");
     }
         localStorage.favorites = JSON.stringify(favs);
-        // alert(item[0].data.name);
-        // $("#favoriteItem").css("background", "red");
-        // $("#description_area").append("<p>"+s+"</p>");
-        // setTimeout(()=>{
-        //     $("#description_area").children().last().remove();
-        // }, 1000);
-    
 }
 
 function searchFavorites(name) {
@@ -314,7 +298,8 @@ function addContent(item) {
     if (!item.data.seasons) {
         item.data.seasons = {};
     }
-    $("#description_add").append("<form>"+
+    $("#description_add").append("<p>Add/Remove an Episode</p>"+
+                                "<form>"+
                                 "<input type='text' required placeholder='E.g. 1-Name' title='Enter season number and name of episode'></input>"+
                                 "<button type='submit' onclick='addEpisode();'>Add</button>"+
                                 "<button type='submit' onclick='removeEpisode();'>Remove</button>"+
@@ -383,32 +368,5 @@ function removeEpisode() {
         delete items[pos].seasons[input[0]];
         items[pos].seasons["seasons"]--;
     }
-
     localStorage.tvShows = JSON.stringify(items);
 }
-
-
-
-function test() {
-
-    setTimeout(() => { 
-        window.location.href = "description.html";
-        // searched = name.toLowerCase().replace(/[^\w\s!?]/g,'');        
-        // localStorage.setItem("searched", searched);
-        // $("#description div:last").append("<div><p>Hi</p></div>");
-        // $("#description").append("<div class='content_img'>"+img+"<p>"+name+"</p>"+"</div>");
-        // console.log("da");
-        localStorage.description = $(this).text();
-    }, 0);
-
-    // $("#description div:last")
-}
-
-
-// if (!localStorage.getItem("tvShows")) {
-//         localStorage.setItem("tvShows", "[]");
-//         $.getJSON("data.json", function(data){
-//             localStorage.tvShows = JSON.stringify(data.tvShows);
-//             initTvShows();
-//         });
-//     }

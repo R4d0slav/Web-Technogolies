@@ -2,22 +2,28 @@
     "movies":
     [
         {   "url":"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT9J7XACn3tlD6v4UXRMvT2wJN8FGCCPeh8U3RkZ6__tR4wGhSo",
-            "name": "The Lord Of The Rings - The Fellowship Of The Ring"
+            "name": "The Lord Of The Rings - The Fellowship Of The Ring",
+            "description": "A young hobbit, Frodo, who has found the One Ring that belongs to the Dark Lord Sauron, begins his journey with eight companions to Mount Doom, the only place where it can be destroyed."
         },
         {   "url":"https://cdn.hmv.com/r/w-1280/hmv/files/35/358d9ebd-3be4-4ef3-a412-9c0cbfc626e3.jpg",
-            "name": "The Lord Of The Rings - The Two Towers"
+            "name": "The Lord Of The Rings - The Two Towers",
+            "description": "Frodo and Sam arrive in Mordor with the help of Gollum. A number of new allies join their former companions to defend Isengard as Saruman launches an assault from his domain."
         },
         {   "url":"https://lightbox-prod.imgix.net/images/assets/100140981-p33156_v_v10_ab.jpg",
-            "name": "The Lord Of The Rings - The Return Of The King"
+            "name": "The Lord Of The Rings - The Return Of The King",
+            "description": "The former Fellowship members prepare for the final battle. While Frodo and Sam approach Mount Doom to destroy the One Ring, they follow Gollum, unaware of the path he is leading them to."
         },
         {   "url":"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTS1VqOgP7iJC44UcztFaTbvD0OzoRymEhXfMPlgq7FPY0OEvCj",
-            "name": "The Hobbit - An Unexpected Journey"
+            "name": "The Hobbit - An Unexpected Journey",
+            "description": "Bilbo Baggins, a hobbit, is persuaded into accompanying a wizard and a group of dwarves on a journey to reclaim the city of Erebor and all its riches from the dragon Smaug."
         },
         {   "url":"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT8e9aFTxDo5jCIaaDNYgNcjJ4JFIz8MVlJr3-nhggVytaoFLOu",
-            "name": "The Hobbit - The Desolation Of Smaug"
+            "name": "The Hobbit - The Desolation Of Smaug",
+            "description": "Bilbo Baggins, a hobbit, and his companions face great dangers on their journey to Laketown. Soon, they reach the Lonely Mountain, where Bilbo comes face-to-face with the fearsome dragon Smaug."
         },
         {   "url":"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRYIyIkKo5-RKlfC1xnBvJMrHH-DbSUmS9NwN9MaJkjjE_f4DP8",
-            "name": "The Hobbit - The Battle Of The Five Armies"
+            "name": "The Hobbit - The Battle Of The Five Armies",
+            "description": "Bilbo fights against a number of enemies to save the life of his Dwarf friends and protects the Lonely Mountain after a conflict arises."
         },
         {   "url":"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRKTcTqELNNPpy-c6orc876-Yxo-_QKENBdIufLEZNlSjHQBj_i",
             "name": "Pirates Of The Carribean - The Curse Of The Black"

@@ -16,7 +16,6 @@
             <a href="home.html">Home</a>
             <a href="movies.html">Movies</a>
             <a id="currentSite" href="tvShows.html">Tv-Shows</a>
-            <!-- <a href="">Genre</a> -->
             <a href="favorites.html">Favorites</a>
     </div>
     <div id="searchDiv">
@@ -31,7 +30,6 @@
             <p>Add a Tv-Show</p>
             <input id="url" type="text" placeholder="Url of image.." required><br>
             <input id="name" type="text" placeholder="Name.." required><br>
-            <!-- <button type="submit" onclick="hide();">Add</button> -->
             <button type="submit" onclick="addNewItem('tvShows', $('#url').val(), $('#name').val());">Add</button>
         </form>
     </div>
@@ -39,7 +37,14 @@
     <div id="tvShows"></div>
 
     <footer>
-        Footer..
+        <div id="footerArea1">
+            <h3>Movies/Tv-Shows Library</h3>
+            <p>Add new Movies and Tv-Shows and keep track of what you have watched.</p>
+        </div>
+        <div id="footerArea2">
+            <h3>Links:</h3>
+            <a href="resources.html">Resources</a>
+        </div>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"

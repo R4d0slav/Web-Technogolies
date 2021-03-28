@@ -9,40 +9,39 @@
 </head>
 <body>
     <header>
-        <h1>Favorites</h1>        
+        <h1>Movies / Tv-Shows</h1>        
     </header>
     
     <div id="navBar">
-            <a href="home.html">Home</a>
+            <a id="currentSite" href="home.html">Home</a>
             <a href="movies.html">Movies</a>
             <a href="tvShows.html">Tv-Shows</a>
-            <!-- <a href="">Genre</a> -->
-            <a id="currentSite" href="favorites.html">Favorites</a>
+            <a href="favorites.html">Favorites</a>
     </div>
     <div id="searchDiv">
         <form>
             <input id='srch' type="text" placeholder="Search..">
             <button type="submit" onclick='search($("#srch").val());'>Submit</button>
-            <!-- <input id=srchB type="button" onclick="location.href='search.html'; localStorage.setItem('searched','asd');" value="Submit"/> -->
         </form>
-        <!-- onclick='search($("#srch").val());' -->
     </div>
 
-    <!-- <div id="mainPage"> -->
-            <!-- Content added with jQuery -->
+    <div id="tvShows">
+        <h2>Tv-Shows</h2>
+    </div>
 
-        <div id="FtvShows">
-            <h2>Tv-Shows</h2>
-        </div>
-
-        <div id="Fmovies">
-            <h2>Movies</h2>
-        </div>
-
-    <!-- </div> -->
+    <div id="movies">
+        <h2>Movies</h2>
+    </div>
 
     <footer>
-        Footer..
+        <div id="footerArea1">
+            <h3>Movies/Tv-Shows Library</h3>
+            <p>Add new Movies and Tv-Shows and keep track of what you have watched.</p>
+        </div>
+        <div id="footerArea2">
+            <h3>Links:</h3>
+            <a href="resources.html">Resources</a>
+        </div>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
