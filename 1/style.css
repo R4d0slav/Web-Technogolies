@@ -1,0 +1,405 @@
+
+header {
+    grid-area: header;
+    background-color: teal;
+    height: 70px;
+}
+
+header h1 {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+#navBar {
+    position: relative;
+    grid-area: navBar;
+    display: block;
+    background-color: transparent;
+    text-align: center;
+    align-self: baseline;
+}
+
+#navBar a {
+    position: relative;
+    grid-area: navBarLinks;
+    text-decoration: none;
+    padding: 24px 10px 10px 10px;
+    color:white;
+    display: block;
+    font-size: 16px;
+}
+
+#navBar a:hover {
+    color: rgb(235, 200, 134);;
+}
+
+#navBar a::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    display: block;
+    transition: width 0.5s;
+    background-color: rgb(235, 200, 134);
+  }
+  
+#navBar a:hover::after {
+    width: 100%;
+}
+
+button:hover {
+    background-color: wheat;
+}
+
+#searchDiv {
+    grid-area: search;
+    padding: 31px 0px 10px 0px;
+    text-align: center;
+    background-color: teal;
+    align-self: baseline;
+    overflow: hidden;
+}
+
+input, button {
+    padding: 5px;
+    border-radius: 10px;
+    border-style: double;
+}
+
+input {
+    width: 10vw;
+}
+
+#tvShows, #StvShows, #FtvShows {
+    color: white;
+    width: 100%;
+    text-align: center;
+    grid-area: tvShows;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#movies, #Smovies, #Fmovies {
+    color: white;
+    width: 100%;
+    text-align: center;
+    grid-area: movies;
+    margin-right: auto;
+}
+
+.content_img {
+    position: relative;
+    float: left;
+}
+
+.content_img img {
+    opacity: 1;
+    display: block;
+    padding: 10px;
+    height: 150px;
+    width: 100px;
+    opacity: 1;
+    transition: .5s ease;
+}
+
+.content_img p {
+    visibility: hidden;
+    position: absolute;
+    font-weight: bold;
+    color: white;
+    top: 40%;
+    width: 100%;
+    text-align: center;
+}
+
+.content_img img:hover {
+    opacity: 0.3;
+}
+
+.content_img img:hover + p {
+    visibility: visible;
+}
+
+.content_img p:hover{
+    opacity: 0;
+    visibility: visible;
+}
+
+footer {
+    grid-area: footer;
+    background-color: teal;
+    text-align: center;
+    padding: 20px;
+    position: static;
+}
+
+#add {
+    background-color: rgb(1, 105, 105);
+    grid-area: addDiv;
+    display: block;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    border-style: double;
+    overflow: hidden;
+    visibility: visible;
+    align-self: baseline;
+}
+
+#add input {
+    width: 80%;
+    margin: 2px;
+}
+
+#add button {
+    margin: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#description_img {
+    padding: 30px;
+    grid-area: dImg;
+}
+
+#description_img img {
+    width: 100%;
+    height: auto;
+}
+
+#description_title {
+    grid-area: dTitle;
+    color: silver;
+    margin-left: 20%;
+    display: inline-block;
+
+}
+
+#description_area {
+    padding: 40px;
+    grid-area: dArea;
+    color: white;
+}
+
+textarea {
+    padding: 10px;
+    width: 90%;
+    height: 50px;
+    background-color: transparent;
+    color: white;
+}
+
+#description_content {
+    word-break: break-word;
+    margin: 50px 0px 0px 0px;
+}
+
+
+#description_content > ul > li {
+    display: table;
+    width: 60%;
+    text-align: center;
+    border-radius: 5px;
+    background-color: teal;
+    color: white;
+}
+
+#description_content ul > li > ol{
+    padding: 10px 5px 10px 25px;
+    width: 100%;
+    text-align: start;
+    display: table;
+    background-color: black;
+    color: silver;
+}
+
+#description_add p {
+    color: white;
+    margin-left: 15%;
+    margin-top: 50px;
+}
+
+#description_area2 {
+    grid-area: dArea2;
+}
+
+footer {
+    grid-area: footer;
+    background-color: teal;
+    text-align: center;
+}
+
+#footerArea1 {
+    display: inline-block;
+    text-align: center;
+    width: 40%;
+}
+
+#footerArea2 {
+    border-color: rgb(1, 110, 110);
+    border-style: double;
+    border-radius: 10px;
+    display: inline-block;
+    padding: 0px 0px 20px 20px;
+    width: 40%;
+}
+
+#footerArea2 a {
+    color:white;
+    text-decoration: none;
+}
+
+#footerArea2 a:hover {
+    color: wheat;
+}
+
+#resources ul {
+    color: white;
+}
+
+#resources a {
+    text-decoration: none;
+    color: silver;
+}
+
+#resources a:hover {
+    color: royalblue;
+}
+
+body {
+    margin: 0%;
+    background: black;
+    display: grid;
+    grid-template-columns: 40% 20% 40%;
+    grid-template-areas: 
+    "header header search"
+    "navBar tvShows tvShows"
+    "navBar movies movies"
+    "footer footer footer";
+}
+
+.otherBody {
+    margin: 0%;
+    background: black;
+    display: grid;
+    grid-template-columns: 40% 20% 40%;
+    grid-template-rows: 80px 250px;
+    /* The grid area is done with jquery */
+}
+
+#description_body {
+    display: grid;
+    grid-template-columns: 20% 30% 50%;
+    grid-template-areas: 
+    "header header search"
+    "navBar dArea dArea"
+    "dImg dImg dArea2"
+    "footer footer footer";
+}
+
+
+@media screen and (min-width: 600px) {
+    body {
+        margin: 0%;
+        background: black;
+        display: grid;
+        grid-template-columns: 25% 51% 25%;
+        grid-template-areas: 
+        "header navBar search"
+        "tvShows tvShows tvShows"
+        "movies movies movies"
+        "footer footer footer";
+    }
+    #description_body {    
+        grid-template-columns: 25% 25% 26% 24%;
+        grid-template-areas: 
+        "header navBar navBar search"
+        "dImg dImg dArea dArea"
+        "dImg dImg dArea2 dArea2"
+        "footer footer footer footer";
+    }
+    .otherBody {
+        margin: 0%;
+        background: black;
+        display: grid;
+        grid-template-columns: 24% 53% 23%;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "header navBar search"
+        "addDiv tvShows tvShows"
+        "addDiv movies movies"
+        "footer footer footer";
+    }
+    
+    .content_img img {
+        width: 200px;
+        height: 300px;
+    }
+
+    header {
+        text-align: start;
+        height: 60px;
+    }
+    header h1 {
+        margin-top: 0px;
+        margin-left: 10px;
+        font-size: 24px;
+    }
+
+    #navBar {    
+        padding: 5px 0px 1px 0px;
+        text-align: end;
+        background-color: teal;
+    }
+    
+    #navBar a {
+        display: inline-block;
+    }
+
+    #currentSite {
+        background-color: rgb(1, 119, 119);
+    }
+
+    #searchDiv {
+        grid-area: search;
+        padding: 23px 0px 7.5px 0px;
+        text-align: center;
+        background-color: teal;
+    }
+}
+
+
+@media screen and (min-width: 1200px) {
+    .otherBody {
+        grid-template-columns: 14% 56% 30%;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "header navBar search"
+        "addDiv tvShows tvShows"
+        "addDiv movies movies"
+        "footer footer footer";
+    }
+    #description_body {    
+        grid-template-columns: 30% 40% 7% 23%;
+        grid-template-areas: 
+        "header navBar search search"
+        "dImg dArea dArea dArea2"
+        "footer footer footer footer";
+    }
+
+    header h1 {
+        margin-top: 10px;
+        margin-left: 20px;
+        font-size: 32px;
+    }
+
+    #navBar a {
+        font-size: 20px;
+    }
+    
+    #navBar {
+        padding: 0px 0px 1px 0px;
+    }
+}
