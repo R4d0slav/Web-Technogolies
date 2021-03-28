@@ -7,9 +7,9 @@
     <title>Homework-1</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="resourcesBody">
     <header>
-        <h1>Resources</h1>        
+        <h1>Resources / How-To</h1>        
     </header>
     
     <div id="navBar">
@@ -27,12 +27,60 @@
 
     <div id="resources">
         <ul>
-            <li><a href="https://stackoverflow.com/questions/56839154/how-do-i-animate-a-link-underline-to-the-width-of-the-link-not-the-ul">The underline of the navigation bar</a></li>
-            <li><a href="https://stackoverflow.com/questions/14263594/how-to-show-text-on-image-when-hovering">Show text when hover on image</a></li>
-            <li><a href="https://stackoverflow.com/questions/596608/slide-right-to-left">Box sliding for adding new Movies/Tv-Shows</a></a></li>
-            <li><a href="https://www.laravelcode.com/post/how-to-load-local-json-file-using-jquery">Load JSON file</a></a></li>
-            <li><a href="https://stackoverflow.com/questions/15054182/javascript-check-if-file-exists">Checking if json file exists</a></a></li>
+            <li><a href="https://stackoverflow.com/questions/56839154/how-do-i-animate-a-link-underline-to-the-width-of-the-link-not-the-ul">The underline of the navigation bar</a>
+                <ul>
+                    <li>Helped me add underline with "transition to the links of the navigation bar.</li>
+                </ul>
+            </li>
+            <li><a href="https://stackoverflow.com/questions/14263594/how-to-show-text-on-image-when-hovering">Show text when hover on image</a>
+                <ul>
+                    <li>Helped me understand "opacity" and "transition" alongside "visability".</li>
+                </ul>
+            </li>
+            <li><a href="https://stackoverflow.com/questions/596608/slide-right-to-left">Box sliding for adding new Movies/Tv-Shows</a></a>
+                <ul>
+                    <li>Helped me with animating the "width" change of a div element.</li>
+                </ul>
+            </li>
+            <li><a href="https://www.laravelcode.com/post/how-to-load-local-json-file-using-jquery">Load JSON file</a></a>
+                <ul>
+                    <li>Helped me with loading JSON data and storing it in localStorage for future use.</li>
+                </ul>
+            </li>
+            <li><a href="https://stackoverflow.com/questions/15054182/javascript-check-if-file-exists">Checking if JSON file exists</a></a>
+                <ul>
+                    <li>Used it to check if a JSON file exists, to implement 2 approaches for the data.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
 
+    <div id="howTo">
+        <h1>How To</h1>
+        <ul>
+            <li>Clicking an image takes you to it's description page which is dynamicaly filled up using jQuery and localStorage data.</li>
+            <li>On the Movies page, you can add a new Movie by entering "url of image" and "name" for the Movie.</li>
+            <li>On the Tv-Shows page, you can add a new Tv-Show by entering "url of image" and "name" for the Tv-Show.</li>
+            <li>When in description page
+                <ul>
+                    <li>You can add/change the "description" and it is saved in localStorage.</li>
+                    <li>You can "favorite" the Movie/Tv-Show, which is saved in localStorage.</li>
+                    <li>You can remove from favorites by clicking "favorite" again if it's already favorited.</li>
+                    <li>You can remove the Movie/Tv-Show by clicking "Delete" and confirming the deletion.</li>
+                    <li>If in Tv-Shows description
+                        <ul>
+                            <li>You can add new episodes by entering "The number of season"-"Episode name"
+                                <ul>
+                                    <li>Example: "1-New Episode", creates a "New Episode" in "Season 1".</li>
+                                    <li>If the season does not exist, it is created.</li>
+                                </ul>
+                            </li>
+                            <li>You can also remove episodes the same way, just clicking on the "Remove" instead of the "Add" button.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>You can Search for a Movie or Tv-Show by words.</li>
         </ul>
     </div>
 
@@ -43,7 +91,7 @@
         </div>
         <div id="footerArea2">
             <h3>Links:</h3>
-            <a href="resources.html">Resources</a>
+            <a href="resources.html">Resources / How-To</a><br>
         </div>
     </footer>
 

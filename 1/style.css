@@ -23,7 +23,7 @@ header h1 {
 
 #navBar a {
     position: relative;
-    grid-area: navBarLinks;
+    /* grid-area: navBarLinks; */
     text-decoration: none;
     padding: 24px 10px 10px 10px;
     color:white;
@@ -255,17 +255,39 @@ footer {
     color: wheat;
 }
 
+#resources {
+    grid-area: resource;
+    padding: 20px;
+}
+
 #resources ul {
-    color: white;
+    color: silver;
 }
 
 #resources a {
     text-decoration: none;
-    color: silver;
+    color: royalblue;
 }
 
 #resources a:hover {
-    color: royalblue;
+    color: wheat;
+}
+
+#howTo {
+    grid-area: howTo;
+    border-style: double;
+    border-color: teal;
+    border-radius: 40px;
+    margin: 20px 20px 20px 20px;
+}
+
+#howTo h1 {
+    text-align: center;
+    color: wheat;
+}
+
+#howTo * {
+    color: silver;
 }
 
 body {
@@ -299,12 +321,21 @@ body {
     "footer footer footer";
 }
 
+#resourcesBody {
+    display: grid;
+    grid-template-columns: 20% 30% 50%;
+    grid-template-areas: 
+    "header header search"
+    "navBar resource resource"
+    "navBar howTo howTo"
+    "footer footer footer";
+}
 
 @media screen and (min-width: 600px) {
     body {
-        margin: 0%;
-        background: black;
-        display: grid;
+        /* margin: 0%; */
+        /* background: black; */
+        /* display: grid; */
         grid-template-columns: 25% 51% 25%;
         grid-template-areas: 
         "header navBar search"
@@ -321,9 +352,9 @@ body {
         "footer footer footer footer";
     }
     .otherBody {
-        margin: 0%;
-        background: black;
-        display: grid;
+        /* margin: 0%; */
+        /* background: black; */
+        /* display: grid; */
         grid-template-columns: 24% 53% 23%;
         grid-template-rows: auto;
         grid-template-areas: 
@@ -331,6 +362,14 @@ body {
         "addDiv tvShows tvShows"
         "addDiv movies movies"
         "footer footer footer";
+    }
+    #resourcesBody {
+        display: grid;
+        grid-template-columns: 24% 20% 33% 23%;
+        grid-template-areas: 
+        "header navBar navBar search"
+        "resource resource howTo howTo"
+        "footer footer footer footer";
     }
     
     .content_img img {
@@ -398,7 +437,7 @@ body {
     #navBar a {
         font-size: 20px;
     }
-    
+
     #navBar {
         padding: 0px 0px 1px 0px;
     }
