@@ -115,6 +115,7 @@ input {
 
 .content_img img:hover {
     opacity: 0.3;
+    cursor: pointer;
 }
 
 .content_img img:hover + p {
