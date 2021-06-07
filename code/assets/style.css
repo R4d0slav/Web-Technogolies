@@ -1,0 +1,354 @@
+.important {
+    color: red;
+}
+
+.search {
+    background-color: teal;
+    grid-area: search;
+    padding: 20px 0px 0px 0px;
+    text-align: center;
+}
+
+.search * {
+    border-radius: 5px;
+    padding: 3px 4px 3px 4px;
+}
+
+button:hover {
+    background-color: wheat;
+}
+
+p {
+    grid-area: someText;
+    color: white;
+}
+
+.pageTitle {
+    color: white;
+    grid-area: pageTitle;
+    background-color: teal;
+    margin: 0%;
+    position: relative;
+    padding: 20px 0px 0px 10px;
+}
+
+#menu {
+    grid-area: menuLinks;
+    background-color: teal;
+    text-align: right;
+    color: white;
+    font-size: 20px;
+    align-self: baseline;
+}
+
+#menu a {
+    color: white;
+    display: block;
+    padding: 28px 22px 12px 22px;
+    text-decoration: none;
+}
+
+#menu a:hover {
+    background-color: rgb(5, 121, 121);
+}
+
+footer {
+    grid-area: footer;
+    background-color: teal;
+    text-align: center;
+    padding: 20px;
+    position: static;
+    /* width: 100%; */
+}
+
+#footerArea {
+    display: inline-block;
+    text-align: center;
+    width: 40%;
+}
+
+
+img {
+    height: 250px;
+    width: 170px;
+    padding: 10px 10px 10px 10px;
+}
+
+#main {
+    grid-area: main;
+    display: flex;
+    margin: 10px;
+}
+
+p {
+    color: white;
+}
+
+#registerForm {
+    background-color: teal;
+    text-align: center;
+    width: 500px;
+    padding: 0px 20px 0px 20px;
+    margin: 20px auto 20px auto;
+    border-radius: 10px;
+    border-width: 6px;
+    border-style: double;
+    color: black;
+}
+
+#registerForm input {
+    border-style: double;
+    width: 90%;
+    border-radius: 7px;
+    padding: 10px 10px 10px 10px;
+}
+
+#registerForm button {
+    margin-top: 20px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 5px;
+    background-color: limegreen;
+    width: 95%;
+}
+
+#registerForm #first {
+    display: inline-block;
+    width: 95%;
+}
+
+#registerForm #first #firstname {
+    width: 49%;
+    float: left;
+}
+
+#registerForm #first #lastname {
+    width: 49%;
+    float: right;
+}
+
+#loginForm {
+    background-color: teal;
+    text-align: center;
+    border-radius: 10px;
+    border-width: 6px;
+    border-style: double;
+    color: black;
+    width: 400px;
+    padding: 0px 20px 0px 20px;
+    margin: 20px auto 20px auto;
+}
+
+#loginForm label {
+    color: black;
+}
+
+#loginForm input {
+    padding: 4px 10px 4px 10px;
+    width: 55%;
+    border-radius: 5px;
+    border-style: double;
+}
+
+#loginForm button {
+    padding: 4px 20px 4px 20px;
+    border-radius: 5px;
+}
+
+#addContent {
+    background-color: teal;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+    border-radius: 5px;
+    margin-right: 20px;
+    grid-area: adding;
+}
+
+#addContent input {
+    padding: 5px;
+    width: 90%;
+    border-radius: 5px;
+    border-style: double;
+
+}
+
+#addContent button {
+    padding: 5px 30px 5px 30px;
+    height: 30px;
+    border-style: double;
+    border-radius: 10px;
+}
+
+.imgContent form {
+    position: relative;
+    float: left;
+} 
+
+.imgContent form img {
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+}
+
+.imgContent form p {
+    position: absolute;
+    text-align: center;
+    top: 40%;
+    width: 90%;
+    left: 5%;
+    visibility: hidden;
+}
+
+.imgContent form:hover img {
+    opacity: 0.3;
+}
+
+.imgContent form:hover p {
+    visibility: visible;
+}
+
+#main #descriptionImg {
+    width: 30%;
+    height: auto;
+    align-self: baseline;
+}
+
+#main #content {
+    padding: 5%;
+    width: 45%;
+    text-align: center;
+    color: white;
+}
+
+#main #content h2 {
+    font-size: 300%;
+}
+
+#main #content #description {
+    margin: 15% 0 0 0;
+    height: 20%;
+}
+
+#main #content #description textarea {
+    margin: 1% 0 0 0;
+    width: 80%;
+    height: 70%;
+    max-width: 90%;
+    max-height: 80%;
+    color: white;
+    background-color: transparent;
+}
+
+
+#main #content #buttons {
+    margin: 5% 0 0 0;
+    padding: 10px;
+    width: 80%;
+    display: inline-block;
+    align-content: flex-end;
+}
+
+#main #content #buttons div * {
+    margin: 0 2% 0 0;
+    float: right;
+}
+
+#live {
+    width: 100%;
+    display: block;
+}
+
+#liveSearch {
+    width: 100%;
+    text-align: center;
+    margin: 5% 0 3% 0;
+}
+
+#search-field {
+    padding: 15px;
+    width: 50%;
+    border-radius: 20px;
+    margin-top: 15px;
+}
+
+#liveSearch label {
+    font-size: 250%;
+}
+
+#main .imgContent {
+    display: inline-block;
+}
+
+#addEpisodes {
+    width: 20%;
+}
+
+#addEpisodes input {
+    width: 50%;
+}
+
+#addEpisodes #addDiv {
+    margin: 20% 0 10% 0;
+}
+
+#addEpisodes div {
+    margin: 5% 0 0 0;
+}
+
+
+.radio {
+    border-radius: 50%;
+    border-style: double;
+}
+
+#year {
+    margin: 0 0 0 10%;
+    text-align: left;
+}
+
+body {
+    margin: 0%;
+    background-color: black;
+    color: white;
+    display: grid;
+    grid-template-columns: 65% 20% 15%;
+    grid-template-areas: 
+    "pageTitle search search"
+    "main main menuLinks"
+    "footer footer footer"
+    ;
+}
+
+img {
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+form {
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+
+
+@media only screen and (min-width: 1200px){
+    
+    body {
+        margin: 0%;
+        background-color: black;
+        color: white;
+        display: grid;
+        grid-template-columns: 25% 50% 25%;
+        grid-template-areas: 
+        "pageTitle menuLinks search"
+        "main main main"
+        "footer footer footer"
+        ;
+    }
+
+    #menu a {
+        display: inline-block;
+    }
+
+
+}
